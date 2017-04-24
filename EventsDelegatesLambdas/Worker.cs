@@ -11,6 +11,7 @@ namespace EventsDelegatesLambdas
 
     public class Worker
     {
+
         public event EventHandler<WorkPerformedEventArgs> WorkPerformed;
         public event EventHandler WorkComplete;
 
@@ -19,28 +20,19 @@ namespace EventsDelegatesLambdas
             for (int i = 0; i < hours; i++)
             {
                 System.Threading.Thread.Sleep(500);
-               OnWorkPerformed(i + 1, workType);
+                OnWorkPerformed(i + 1, workType);
             }
             OnWorkComplete();
         }
 
-        protected virtual void OnWorkPerformed(int hours, WorkType worktype)
+        protected virtual void OnWorkPerformed(int hours, WorkType workType)
         {
-            var del = WorkPerformed as EventHandler<WorkPerformedEventArgs>;
-            if (del != null)
-            {
-                del(this, new WorkPerformedEventArgs(hours, worktype));
-            }
+            WorkPerformed?.Invoke(this, new WorkPerformedEventArgs(hours, workType));
         }
+
         protected virtual void OnWorkComplete()
         {
-            var del = WorkComplete as EventHandler;
-            if (del != null)
-            {
-                del(this,EventArgs.Empty);
-            }
+            WorkComplete?.Invoke(this, EventArgs.Empty);
         }
     }
-
-
 }

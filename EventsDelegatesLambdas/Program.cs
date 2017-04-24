@@ -12,21 +12,23 @@ namespace EventsDelegatesLambdas
         static void Main(string[] args)
         {
             var worker = new Worker();
-            worker.WorkPerformed += Worker_WorkPerformed1;
-            worker.WorkComplete += Worker_WorkComplete;
+            worker.WorkPerformed += Worker_WorkPerformed;
+            worker.WorkComplete += Worker_WorkComplete1;
             worker.DoWork(5, WorkType.GoToMeetings);
             Console.Read();
         }
 
-        private static void Worker_WorkComplete(object sender, EventArgs e)
-        {
-            Console.WriteLine("Work is done");
-        }
+        //private static void Worker_WorkPerformed(object sender, WorkPerformedEventArgs e)
+        //{
+        //    Console.WriteLine(e.Hours + " " + e.WorkType);
+        //}
 
-        private static void Worker_WorkPerformed1(object sender, WorkPerformedEventArgs e)
-        {
-            Console.WriteLine(e.Hours + " " + e.WorkType);
-        }
+        //private static void Worker_WorkComplete1(object sender, EventArgs e)
+        //{
+        //    Console.WriteLine("Work is Complete");
+        //}
+
+
 
     }
 }
