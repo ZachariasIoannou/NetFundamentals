@@ -16,6 +16,7 @@ namespace EventsDelegatesLambdas
             WorkPerformedDelegate del2 = new WorkPerformedDelegate(WorkPerformed2);
             WorkPerformedDelegate del3 = new WorkPerformedDelegate(WorkPerformed3);
 
+
             //doWork(del1);
             //del2(4, WorkType.GenerateReports);
 
