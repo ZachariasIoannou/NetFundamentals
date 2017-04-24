@@ -18,15 +18,15 @@ namespace EventsDelegatesLambdas
             Console.Read();
         }
 
-        //private static void Worker_WorkPerformed(object sender, WorkPerformedEventArgs e)
-        //{
-        //    Console.WriteLine(e.Hours + " " + e.WorkType);
-        //}
+        private static void Worker_WorkPerformed(object sender, WorkPerformedEventArgs e)
+        {
+            Console.WriteLine(e.Hours + " " + e.WorkType);
+        }
 
-        //private static void Worker_WorkComplete1(object sender, EventArgs e)
-        //{
-        //    Console.WriteLine("Work is Complete");
-        //}
+        private static void Worker_WorkComplete1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Work is Complete");
+        }
 
 
 
