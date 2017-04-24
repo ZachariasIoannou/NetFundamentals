@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace EventsDelegatesLambdas
 {
-    public delegate int WorkPerformedHandler(int hours, WorkType workType);
+    //public delegate int WorkPerformedHandler(object sender, EventArgs e);
 
     public class Worker
     {
-        public event WorkPerformedHandler WorkPerformed;
+        public event EventHandler<WorkPerformedEventArgs> WorkPerformed;
         public event EventHandler WorkComplete;
 
         public void DoWork(int hours, WorkType workType)
         {
             for (int i = 0; i < hours; i++)
             {
+                System.Threading.Thread.Sleep(500);
                OnWorkPerformed(i + 1, workType);
             }
             OnWorkComplete();
@@ -25,10 +26,10 @@ namespace EventsDelegatesLambdas
 
         protected virtual void OnWorkPerformed(int hours, WorkType worktype)
         {
-            var del = WorkPerformed as WorkPerformedHandler;
+            var del = WorkPerformed as EventHandler<WorkPerformedEventArgs>;
             if (del != null)
             {
-                del(hours,worktype);
+                del(this, new WorkPerformedEventArgs(hours, worktype));
             }
         }
         protected virtual void OnWorkComplete()
