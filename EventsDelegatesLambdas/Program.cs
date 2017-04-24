@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,12 @@ namespace EventsDelegatesLambdas
 
             data.Process(2,3,addDel );
             data.Process(2, 3, MultiplyDel);
+
+            Action<int, int> myAction = (x, y) => Console.Write(x + y);
+            Action<int, int> myMultiplyAction = (x, y) => Console.Write(x * y);
+
+            data.ProcessAction(2, 3, myAction);
+            data.ProcessAction(2,3,myMultiplyAction);
 
             var worker = new Worker();
 
