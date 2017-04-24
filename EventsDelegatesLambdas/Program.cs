@@ -11,9 +11,9 @@ namespace EventsDelegatesLambdas
       
         static void Main(string[] args)
         {
-            WorkPerformedDelegate del1 = new WorkPerformedDelegate(WorkPerformed1);
-            WorkPerformedDelegate del2 = new WorkPerformedDelegate(WorkPerformed2);
-            WorkPerformedDelegate del3 = new WorkPerformedDelegate(WorkPerformed3);
+            WorkPerformedHandler del1 = new WorkPerformedHandler(WorkPerformed1);
+            WorkPerformedHandler del2 = new WorkPerformedHandler(WorkPerformed2);
+            WorkPerformedHandler del3 = new WorkPerformedHandler(WorkPerformed3);
 
             //doWork(del1);
             //del2(4, WorkType.GenerateReports);
@@ -27,7 +27,7 @@ namespace EventsDelegatesLambdas
             Console.Read();
         }
 
-        static void doWork(WorkPerformedDelegate del)
+        static void doWork(WorkPerformedHandler del)
         {
             del(5, WorkType.Eating);
         }
