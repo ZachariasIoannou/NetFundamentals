@@ -8,7 +8,7 @@ namespace EventsDelegatesLambdas
 {
     class Program
     {
-        public delegate void WorkPerformedDelegate(int hours, WorkType workType);
+        public delegate int WorkPerformedDelegate(int hours, WorkType workType);
 
         static void Main(string[] args)
         {
@@ -21,7 +21,9 @@ namespace EventsDelegatesLambdas
 
             del1 += del2 + del3;
             
-            del1(2, WorkType.Eating);
+            int resultedHours = del1(2, WorkType.Eating);
+
+            Console.WriteLine(resultedHours);
 
             Console.Read();
         }
@@ -31,19 +33,22 @@ namespace EventsDelegatesLambdas
             del(5, WorkType.Eating);
         }
 
-        static void WorkPerformed1(int hours, WorkType workType)
+        static int WorkPerformed1(int hours, WorkType workType)
         {
             Console.WriteLine("WorkPerformed1 called worked for: {0} hours {1}",hours, workType);
+            return hours + 1;
         }
 
-        static void WorkPerformed2(int hours, WorkType workType)
+        static int WorkPerformed2(int hours, WorkType workType)
         {
             Console.WriteLine("WorkPerformed2 called worked for: {0} hours {1}", hours, workType);
+            return hours + 2;
         }
 
-        static void WorkPerformed3(int hours, WorkType workType)
+        static int WorkPerformed3(int hours, WorkType workType)
         {
             Console.WriteLine("WorkPerformed3 called worked for: {0} hours {1}", hours, workType);
+            return hours + 3;
         }
 
         public enum WorkType
