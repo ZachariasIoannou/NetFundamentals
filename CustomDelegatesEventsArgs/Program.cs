@@ -14,11 +14,18 @@ namespace CustomDelegatesEventsArgs
     {
         static void Main(string[] args)
         {
+            var data = new ProcessData();
             BizRulesDelegate addDel = (x, y) => x + y;
             BizRulesDelegate multiplyDel = (x, y) => x * y;
-            var data = new ProcessData();
-            data.Process(2, 3, addDel);
-            data.Process(2, 3, multiplyDel);
+            //data.Process(2, 3, addDel);
+            //data.Process(2, 3, multiplyDel);
+
+
+            Func<int,int,int> funcAddDel = (x, y) => x + y;
+            Func<int, int, int> funcMultiplyDel = (x, y) => x * y;
+            data.ProcessFunc(3,2,funcAddDel);
+            data.ProcessFunc(3, 2, funcMultiplyDel);
+
 
             Action<int, int> myAction = (x, y) => Console.Write(x + y);
             Action<int, int> myMultuiplyAction = (x, y) => Console.Write(x + y);
