@@ -20,6 +20,12 @@ namespace CustomDelegatesEventsArgs
             data.Process(2, 3, addDel);
             data.Process(2, 3, multiplyDel);
 
+            Action<int, int> myAction = (x, y) => Console.Write(x + y);
+            Action<int, int> myMultuiplyAction = (x, y) => Console.Write(x + y);
+
+            data.ProcessAction(2,3,myAction);
+            data.ProcessAction(2, 3, myMultuiplyAction);
+
             var worker = new Worker();
             worker.WorkPerformed += (s,e) => Console.WriteLine("Hours woerked" + e.Hours + " " + e.WorkType); 
             worker.WorkCompleted += (s, e) =>
