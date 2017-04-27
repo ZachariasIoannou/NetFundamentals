@@ -15,8 +15,11 @@ namespace CustomDelegatesEventsArgs
         static void Main(string[] args)
         {
             var worker = new Worker();
-            worker.WorkPerformed += WorkPerformed;
-            worker.WorkCompleted += Worker_WorkCompleted;     
+            worker.WorkPerformed += (s,e) => Console.WriteLine("Hours woerked" + e.Hours + " " + e.WorkType); 
+            worker.WorkCompleted += (s, e) =>
+            {
+                Console.WriteLine("Worker is done");
+            };
 
             worker.DoWork(8,WorkType.Brake);
 
