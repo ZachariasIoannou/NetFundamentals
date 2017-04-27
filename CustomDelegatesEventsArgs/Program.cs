@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CustomDelegatesEventsArgs
 {
-    //public delegate void WorkPerformedHanlder(int hours, WorkType workType);
+    public delegate int BizRulesDelegate(int x, int y);
 
     class Program
     {
-
         static void Main(string[] args)
         {
+            BizRulesDelegate addDel = (x, y) => x + y;
+            BizRulesDelegate multiplyDel = (x, y) => x * y;
+            var data = new ProcessData();
+            data.Process(2, 3, addDel);
+            data.Process(2, 3, multiplyDel);
+
             var worker = new Worker();
             worker.WorkPerformed += (s,e) => Console.WriteLine("Hours woerked" + e.Hours + " " + e.WorkType); 
             worker.WorkCompleted += (s, e) =>
