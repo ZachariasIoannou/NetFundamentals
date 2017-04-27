@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsDelegatesLambdas", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomDelegatesEventsArgs", "CustomDelegatesEventsArgs\CustomDelegatesEventsArgs.csproj", "{9D587FE1-54DC-45D5-8289-BB84CF51819E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{93685E44-ACF1-4371-AE3C-17DBAB8C6C59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9D587FE1-54DC-45D5-8289-BB84CF51819E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D587FE1-54DC-45D5-8289-BB84CF51819E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D587FE1-54DC-45D5-8289-BB84CF51819E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93685E44-ACF1-4371-AE3C-17DBAB8C6C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93685E44-ACF1-4371-AE3C-17DBAB8C6C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93685E44-ACF1-4371-AE3C-17DBAB8C6C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93685E44-ACF1-4371-AE3C-17DBAB8C6C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
