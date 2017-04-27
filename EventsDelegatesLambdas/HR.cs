@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace EventsDelegatesLambdas
 {
-    public delegate void EmployeeEventHandler(object sender, EmployeeEventArgs e);
+    //public delegate void EmployeeEventHandler(object sender, EmployeeEventArgs e);
 
     public class Hr
     {
-        public event EmployeeEventHandler NewEmployee;
+        //public event EmployeeEventHandler NewEmployee;
+        public event EventHandler<EmployeeEventArgs> NewEmployee;
 
         protected virtual void OnNewEmployee(EmployeeEventArgs e)
         {
