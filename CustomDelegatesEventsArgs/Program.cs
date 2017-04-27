@@ -1,51 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CustomDelegatesEventsArgs
 {
-    public delegate void WorkPerformedHanlder(int hours, WorkType workType);
+    //public delegate void WorkPerformedHanlder(int hours, WorkType workType);
 
     class Program
     {
 
         static void Main(string[] args)
         {
-            WorkPerformedHanlder del1 = new WorkPerformedHanlder(WorkPerformed1);
-            WorkPerformedHanlder del2 = new WorkPerformedHanlder(WorkPerformed2);
-            WorkPerformedHanlder del3 = new WorkPerformedHanlder(WorkPerformed3);
+            var worker = new Worker();
+            worker.WorkPerformed += WorkPerformed;
+            worker.WorkCompleted += Worker_WorkCompleted;     
 
-            del1(5, WorkType.Golf);
-            del2(15, WorkType.Brake);
-
-            del1 += del2 + del3;
-
-            DoWork(del1);
+            worker.DoWork(8,WorkType.Brake);
 
             Console.Read();
         }
 
-        static void DoWork(WorkPerformedHanlder del)
+        private static void Worker_WorkCompleted(object sender, EventArgs e)
         {
-            del(5,WorkType.Brake);
+            Console.WriteLine("Worker is done");
         }
 
-        static void WorkPerformed1(int hours, WorkType workType)
+        static void WorkPerformed(object sender, WorkPerformedEventArgs e)
         {
-            Console.WriteLine("WorkPerformed1 called " + hours.ToString());
+            Console.WriteLine("Hours woerked"  + e.Hours + " " + e.WorkType);
         }
-
-        static void WorkPerformed2(int hours, WorkType workType)
-        {
-            Console.WriteLine("WorkPerformed2 called " + hours.ToString());
-        }
-        static void WorkPerformed3(int hours, WorkType workType)
-        {
-            Console.WriteLine("WorkPerformed3 called " + hours.ToString());
-        }
-
+        
     }
 
     public enum WorkType

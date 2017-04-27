@@ -25,19 +25,11 @@ namespace CustomDelegatesEventsArgs
         protected virtual void OnWorkPerformed(int hours, WorkType workType)
         {
             //var del = WorkPerformed as WorkPerformedEventHandler;
-            var del = WorkPerformed as EventHandler<WorkPerformedEventArgs>;
-            if (del != null)
-            {
-                del(this, new WorkPerformedEventArgs(hours, WorkType.Brake));
-            }
+            WorkPerformed?.Invoke(this, new WorkPerformedEventArgs(hours, WorkType.Brake));
         }
         protected virtual void OnWorkCompleted()
         {
-            var del = WorkCompleted as EventHandler;
-            if (del != null)
-            {
-                del(this, EventArgs.Empty);
-            }
+            WorkCompleted?.Invoke(this, EventArgs.Empty);
         }
     }
 }
